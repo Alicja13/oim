@@ -6,7 +6,7 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.infodrogas.org/">
+    <owl:Ontology rdf:about="https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl">
         <rdfs:comment xml:lang="es">Ontología sobre drogas que describe varios tipo de drogas según los efectos inmediatos que causan, las vías por las que se consumen y su origen.</rdfs:comment>
     </owl:Ontology>
     
