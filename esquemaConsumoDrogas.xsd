@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs= "http://www.w3c.org/2001/XMLSchema"
+targetNamespace="https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl"
+xmlns="https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl"
+elementFormDefault="qualified">
+
+<!--Declaración de los elementos simples para luego referenciarlos-->
+<!--EN <droga>-->
+<xs:element name="nombre" type="xs:string" maxOccurs="unbounded"/>
+<xs:element name="compuestoClave" type="xs:string" maxOccurs="unbounded"/>
+<!--EN <droga> > <presentaciones> > <presentacion>-->
+<xs:element name="viaConsumo" type="tipoVC" maxOccurs="unbounded"/>
+<!--EN <droga> > <legalidad> > <legalidadConsumoPublico>-->
+<!--EN <droga> > <legalidad> > <legalidadVenta>-->
+<xs:element name="restriccionEdad" type="xs:boolean"/>
+<xs:element name="restriccionEspacio" type="xs:boolean"/>
+<!--EN <consumidorMedio> -->
+<xs:element name="edad" type="xs:int"/>
+<xs:element name="sexo" type="xs:string">
+    <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="hombre|mujer"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element name="nivelEducativo" type="xs:string"/>
+<xs:element name="ocupacion" type="xs:string"/>
+<xs:element name="claseSocial" type="xs:string"/>
+
+<!--Declaración de los ATRIBUTOS GLOBALES-->
+	<!--Los identificadores:-->
+<xs:attribute name="idDroga" type="xs:ID" use="required">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="droga[0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+<xs:attribute name="idEfecto" type="xs:ID" use="required">
+    <xs:simpleType>
+      <xs:restriction base="xs:string" use="required">
+        <xs:pattern value="efecto[0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+<xs:attribute name="idPS" type="xs:ID" use="required">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="problema[0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+<xs:attribute name="idEnfermedad" type="xs:ID" use="required">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="enfermedad[0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+<xs:attribute name="idConsumidor" type="xs:ID" use="required">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="consumidor[0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+<xs:attribute name="idPV" type="xs:ID" use="required">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="puntoVenta[0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:attribute>
+
+	<!--Otros atributos-->
+<xs:attribute name="tipoporEfecto" type="tipoTpE" use="required"/>
+<xs:attribute name="tipoPorOrigen" type="tipoTpO" use="required"/>
+<xs:attribute name="duracion" type="xs:string" use="optional"/>
+<xs:attribute name="tipoDeEfecto" type="tipoTdE" use="required"/>
+<xs:attribute name="entidadAfectada" type="tipoEA" use="optional"/>
+
+<!--DECLARACIÓN TIPOS ENUMERADOS-->
+<xs:simpleType name="tipoVC">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="fumada"/>
+    <xs:enumeration value="intravenosa"/>
+    <xs:enumeration value="intranasal"/>
+    <xs:enumeration value="inhalatoria"/>
+    <xs:enumeration value="oral"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoPF">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="cigarro"/>
+    <xs:enumeration value="hebras"/>
+    <xs:enumeration value="polvo"/>
+    <xs:enumeration value="liquida"/>
+    <xs:enumeration value="flores y hojas"/>
+    <xs:enumeration value="resina"/>
+    <xs:enumeration value="pastillas"/>
+    <xs:enumeration value="cristal"/>
+    <xs:enumeration value="gaseosa"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoLegalidad">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="legal"/>
+    <xs:enumeration value="ilegal"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoTpO">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="natural"/>
+    <xs:enumeration value="semisintetica"/>
+    <xs:enumeration value="sintetica"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoTpE">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="estimulante"/>
+    <xs:enumeration value="depresiva"/>
+    <xs:enumeration value="sicodelica"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoTdE">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="estimulante"/>
+    <xs:enumeration value="depresivo"/>
+    <xs:enumeration value="sicodelico"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoEA">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Sociedad"/>
+    <xs:enumeration value="Individuo"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<!--Declaración de algunos ELEMNTOS COMPLEJOS-->
+  <!--Declaración de droga-->
+<xs:complexType name="drogaType" maxOccurs="unbounded">
+  <xs:sequence>
+    <xs:attribute ref="idDroga"/>
+    <xs:attribute ref="tipoporEfecto"/>
+    <xs:attribute ref="tipoPorOrigen"/>
+    <xs:element name="causaEfectoInmediato">
+      <xs:complexType>
+        <xs:attribute ref="idEfecto"/>
+      </xs:complexType>
+    </xs:element>
+    <xs:element name="causaProblemaSocial">
+      <xs:complexType>
+        <xs:attribute ref="idPS"/>
+      </xs:complexType>
+    </xs:element>
+    <xs:element name="causaEnfermedad">
+      <xs:complexType>
+        <xs:attribute ref="idEnfermedad"/>
+      </xs:complexType>
+    </xs:element>
+    <xs:element name="seVendeEnPuntoVenta">
+      <xs:complexType>
+        <xs:attribute ref="idPV"/>
+      </xs:complexType>
+    </xs:element>
+
+    <xs:element name="nombres">
+      <xs:complexType>
+        <xs:sequence>
+        <xs:element ref="nombre"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+
+    <xs:element ref="compuestoClave"/>
+    <!--presentacion elemento mixto-->
+    <xs:element name="presentaciones">
+      <xs:complexType>
+        <xs:element name="presentacion" type="xs:string" maxOccurs="unbounded">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element ref="viaConsumo"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:complexType>
+    </xs:element>
+    <!--legalidad con sus elementos mixtos-->
+    <xs:element name="legalidad">
+      <xs:complexType>
+        <xs:element name="legalidadAutoconsumo" type="tipoLegalidad"/>
+        <xs:element name="legalidadConsumoPublico" type="tipoLegalidad">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element ref="restriccionEdad"/>
+              <xs:element ref="restriccionEspacio"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="legalidadDistribucion" type="tipoLegalidad"/>
+        <xs:element name="legalidadVenta" type="tipoLegalidad">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element ref="restriccionEdad"/>
+              <xs:element ref="restriccionEspacio"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="legalidadCultivoVenta" type="tipoLegalidad"/>
+        <xs:element name="legalidadCultivoAutoconsumo" type="tipoLegalidad"/>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+  <!--Declaración EFECTOS INMEDIATOS-->
+<xs:complexType name="EItype">
+  <xs:sequence>
+    <xs:complexType name="efectoEstimulante" mixed="true" type="string" maxOccurs="unbounded">
+      <xs:attribute ref="idEfecto"/>
+      <xs:attribute ref="tipoDeEfecto"/>
+      <xs:attribute ref="duracion"/>
+    </xs:complexType>
+    <xs:complexType name="efectoDepresivo" mixed="true" type="string" maxOccurs="unbounded">
+      <xs:attribute ref="idEfecto"/>
+      <xs:attribute ref="tipoDeEfecto"/>
+      <xs:attribute ref="duracion"/>
+    </xs:complexType>
+    <xs:complexType name="efectoSicodelico" mixed="true" type="string" maxOccurs="unbounded">
+      <xs:attribute ref="idEfecto"/>
+      <xs:attribute ref="tipoDeEfecto"/>
+      <xs:attribute ref="duracion"/>
+    <xs:complexType name="efectoVasodilatador" mixed="true" type="string" maxOccurs="unbounded">
+      <xs:attribute ref="idEfecto"/>
+      <xs:attribute ref="tipoDeEfecto"/>
+      <xs:attribute ref="duracion"/>
+    </xs:complexType>
+  </xs:sequence>
+</xs:complexType>
+
+<!--Declaración de EFECTOS A LARGO PLAZO-->
+<xs:complexType name="ELtype">
+  <xs:sequence>
+    <xs:attribute ref="duracion"/>
+      <xs:element name="problemasSociales">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:attribute ref="entidadAfectada"/>
+            <xs:complexType name="problemaSocial" mixed="true" type="string" maxOccurs="unbounded">
+              <xs:attribute ref="idPS"/>
+            </xs:complexType>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="enfermedades">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:attribute ref="entidadAfectada"/>
+             <xs:complexType name="enfermedad" mixed="true" type="string" maxOccurs="unbounded">
+              <xs:attribute ref="idEnfermedad"/>
+            </xs:complexType>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<!--Declaración del CONSUMIDOR MEDIO-->
+
+<xs:complexType name="consumidorType">
+  <xs:sequence>
+    <xs:attribute ref="idConsumidor"/>
+    <xs:all>
+      <xs:element ref="edad"/>
+      <xs:element ref="sexo"/>
+      <xs:element ref="nivelEducativo"/>
+      <xs:element ref="ocupacion"/>
+      <xs:element ref="claseSocial"/>
+    </xs:all>
+  </xs:sequence>
+</xs:complexType>
+
+<!--Declaración de puntoVenta-->
+
+<xs:complexType name="PVtype" mixed="true" type="string" maxOccurs="unbounded">
+    <xs:attribute ref="idPV"/>
+</xs:complexType>
+
+
+<!--ESQUEMA COMO TAL-->
+	<xs:element name="consumo"> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="drogas">
+					<xs:complexType>
+						<xs:sequence>
+              <xs:element name="droga" type="drogaType"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+        <xs:element name="efectos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="efectosInmediatos" type="EItype"/>
+              <xs:element name="efectosLargo" type="ELtype"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="consumidores">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="consumidorMedio" type="consumidorType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="puntosVenta">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="puntoVenta" type="PVtype"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
