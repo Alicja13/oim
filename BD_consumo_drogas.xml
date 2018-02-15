@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl">
+<xsl:stylesheet version="1.0" xmlns:xsl="https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd">
 <xsl:template match="/">
 </xsl:template>
 </xsl:stylesheet>
 
-<!--Declarar DTD y Schema-->
+ <!DOCTYPE consumo SYSTEM "DTD_ultima_entrega.dtd" >
+
 <!--Referencia a la DTD (HAY QUE SUBIRLA A GITHUB)-->
 <!--Se toma la referencia como un comentario, no sé por qué, así que la pongo como comentario para poder seguir pasando el validador-->
 <!--DOCTYPE consumo SYSTEM
 "https://www.w3schools.com/xml/note.dtd"-->
 <!--Un solo elemento raiz-->
 
-<!--Lo que está dentro de consumo es la referencia al esquema, me imagino que sería conveniente subir a github tb-->
-<consumo 
-xmlns = "https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl"
+<!--Lo que está dentro de consumo es la referencia al esquema-->
+<consumo xmlns = "https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd"
 xmlns:xsi = "http://www.w3.org/2001/XMLSchema"
-xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl"><!--Aquí URL de github con esquema-->
+xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd"> <!--Aquí URL de github con esquema-->
 <!--Lo anterior es la referencia al esquema, pero creo que habría que subirlo a GitHub y referenciar eso-->
 
 	<drogas>
@@ -34,8 +34,9 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta03"/>
 			<nombres>
 				<nombre>Café</nombre>
-			</nombres>
-			<compuestoClave>Cafeína</compuestoClave>
+			<compuestosClave>
+				<compuestoClave>Cafeína</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
 				<!--REVISAR TIPOS ENUMERADOS COINCIDEN CON ESQUEMA-->
 				<presentacion> <!--Se puede repetir-->
@@ -91,7 +92,9 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 			<nombres>
 				<nombre>Tabaco</nombre>
 			</nombres>
-			<compuestoClave>Nicotina</compuestoClave>
+			<compuestosClave>
+				<compuestoClave>Nicotina</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
 				<presentacion> <!--Se puede repetir -->
 					En forma de cigarro
@@ -157,8 +160,9 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta09"/>
 			<nombres>
 				<nombre>Alcohol</nombre>
-			</nombres>
-			<compuestoClave>Etanol</compuestoClave>
+			<compuestosClave>
+				<compuestoClave>Etanol</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
 				<presentacion> <!--Se puede repetir-->
 					Líquida
@@ -214,8 +218,9 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta09"/>
 			<nombres>
 				<nombre>Cannabis</nombre>
-			</nombres>
-			<compuestoClave>THC</compuestoClave>
+			<compuestosClave>
+				<compuestoClave>THC</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
 				<presentacion> <!--Se puede repetir-->
 					Flores y hojas
@@ -274,8 +279,9 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 				<nombre>Blanca</nombre>
 				<nombre>Polvo</nombre>
 				<nombre>Perico</nombre>
-			</nombres>
-			<compuestoClave>C17H21NO4</compuestoClave>
+			<compuestosClave>
+				<compuestoClave>C17H21NO4</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
 				<presentacion> <!--Se puede repetir-->
 					Polvo
@@ -314,135 +320,338 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 
 		</droga>
 		<!--HEROÍNA-->
-		<droga idDroga="droga0" tipoporEfecto="" tipoPorOrigen="">
-			<causaEfectoInmediato tipoEfectoCausado=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
+		<droga idDroga="droga06" tipoporEfecto="depresiva" tipoPorOrigen="semisintetica">
+			<causaEfectoInmediato tipoEfectoCausado="efecto20"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto21"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto22"/>
+			<causaProblemaSocial tipoProblema="problema14"/>
+			<causaProblemaSocial tipoProblema="problema15"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad23"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad24"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta09"/>
 			<nombres>
-				<nombre></nombre>
-			</nombres>
-			<compuestoClave></compuestoClave>
+			<nombre>Heroína</nombre>
+			<compuestosClave>
+				<compuestoClave>Diacetilmorfina</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
-
+			<presentacion> <!--Se puede repetir-->
+					Polvo
+				<viaConsumo>Esnifada</viaConsumo>
+				<viaConsumo>Inyectada</viaConsumo>
+				<viaConsumo>Inhalada</viaConsumo>
+			</presentacion>
 			</presentaciones>
 			<legalidad>
-				
+				<legalidadAutoconsumo>
+					Legal
+				</legalidadAutoconsumo>
+				<legalidadConsumoPublico>
+					Ilegal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadConsumoPublico>
+				<legalidadDistribucion>
+					Ilegal
+				</legalidadDistribucion>
+				<legalidadVenta>
+					Ilegal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadVenta>
+				<legalidadCultivoVenta>
+					Ilegal
+				</legalidadCultivoVenta>
+				<legalidadCultivoAutoconsumo>
+					Legal
+				</legalidadCultivoAutoconsumo>
 			</legalidad>
 
 		</droga>
 		<!--LSD-->
-		<droga idDroga="droga0" tipoporEfecto="" tipoPorOrigen="">
-			<causaEfectoInmediato tipoEfectoCausado=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
+		<droga idDroga="droga07" tipoporEfecto="sicodelico" tipoPorOrigen="sintetica">
+			<causaEfectoInmediato tipoEfectoCausado="efecto23"/>
+			<causaProblemaSocial tipoProblema="problema01"/>
+			<causaProblemaSocial tipoProblema="problema02"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad25"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad26"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta09"/>
 			<nombres>
-				<nombre></nombre>
-			</nombres>
-			<compuestoClave></compuestoClave>
+				<nombre>LSD</nombre>
+				<nombre>Tripi</nombre>
+				<nombre>Ácido</nombre>
+			<compuestosClave>
+				<compuestoClave>Ácido lisérgico</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
-
+				<presentacion>
+				Líquida
+					<viaConsumo>Oral</viaConsumo>
+				</presentacion>
 			</presentaciones>
 			<legalidad>
-				
-			</legalidad>
+			<legalidadAutoconsumo>
+					Legal
+				</legalidadAutoconsumo>
+				<legalidadConsumoPublico>
+					Ilegal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadConsumoPublico>
+				<legalidadDistribucion>
+					Ilegal
+				</legalidadDistribucion>
+				<legalidadVenta>
+					Ilegal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadVenta>
+				<legalidadCultivoVenta>
+					Ilegal
+				</legalidadCultivoVenta>
+				<legalidadCultivoAutoconsumo>
+					Legal
+				</legalidadCultivoAutoconsumo>
+			</legalidad>	
+			
 
 		</droga>
 		<!--MDMA-->
-		<droga idDroga="droga0" tipoporEfecto="" tipoPorOrigen="">
-			<causaEfectoInmediato tipoEfectoCausado=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
+		<droga idDroga="droga08" tipoporEfecto="estimulante" tipoPorOrigen="sintetica">
+			<causaEfectoInmediato tipoEfectoCausado="efecto24"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto25"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto26"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto27"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto28"/>
+			<causaProblemaSocial tipoProblema="problema01"/>
+			<causaProblemaSocial tipoProblema="problema02"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad27"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta09"/>
 			<nombres>
-				<nombre></nombre>
-			</nombres>
-			<compuestoClave></compuestoClave>
+				<nombre>MDMA</nombre>
+				<nombre>Éxtasis</nombre>
+				<nombre>Cristal</nombre>
+				<nombre>Pirula</nombre>
+			<compuestosClave>
+				<compuestoClave>3,4-metilendioxi-metanfetamina</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
-
+				<presentacion>
+					Pastilla 
+					<viaConsumo>Oral</viaConsumo>
+				</presentacion>
+				<presentacion>
+					Cristal 
+					<viaConsumo>Esnifada</viaConsumo>
+					<viaConsumo>Oral</viaConsumo>
+				</presentacion>
 			</presentaciones>
 			<legalidad>
-				
+			<legalidadAutoconsumo>
+					Legal
+				</legalidadAutoconsumo>
+				<legalidadConsumoPublico>
+					Ilegal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadConsumoPublico>
+				<legalidadDistribucion>
+					Ilegal
+				</legalidadDistribucion>
+				<legalidadVenta>
+					Ilegal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadVenta>
+				<legalidadCultivoVenta>
+					Ilegal
+				</legalidadCultivoVenta>
+				<legalidadCultivoAutoconsumo>
+					Legal
+				</legalidadCultivoAutoconsumo>	
 			</legalidad>
 
 		</droga>
 		<!--ANFETAMINAS-->
-		<droga idDroga="droga0" tipoporEfecto="" tipoPorOrigen="">
-			<causaEfectoInmediato tipoEfectoCausado=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
+		<droga idDroga="droga09" tipoporEfecto="estimulante" tipoPorOrigen="sintetica">
+			<causaEfectoInmediato tipoEfectoCausado="efecto29"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto30"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto31"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto32"/>
+			<causaProblemaSocial tipoProblema="problema01"/>
+			<causaProblemaSocial tipoProblema="problema02"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad28"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta09"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta10"/>
 			<nombres>
-				<nombre></nombre>
-			</nombres>
-			<compuestoClave></compuestoClave>
+				<nombre>Anfetamina</nombre>
+			<compuestosClave>
+				<compuestoClave>Efedrina</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
-
+			<presentacion>
+					Pastillas
+					<viaConsumo>Oral</viaConsumo>
+				</presentacion>
+				<presentacion>
+					Polvo
+					<viaConsumo>Esnifada</viaConsumo>
+				</presentacion>
+				<presentacion>
+					Líquida
+					<viaConsumo>Inyectada</viaConsumo>
+				</presentacion>
 			</presentaciones>
 			<legalidad>
-				
+				<legalidadAutoconsumo>
+					Legal
+				</legalidadAutoconsumo>
+				<legalidadConsumoPublico>
+					Ilegal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadConsumoPublico>
+				<legalidadDistribucion>
+					Ilegal
+				</legalidadDistribucion>
+				<legalidadVenta>
+					Legal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio>Sí</restriccionEspacio>
+				</legalidadVenta>
+				<legalidadCultivoVenta>
+					Legal
+				</legalidadCultivoVenta>
+				<legalidadCultivoAutoconsumo>
+					Legal
+				</legalidadCultivoAutoconsumo>
+			</legalidad>
 			</legalidad>
 
 		</droga>
 		<!--DISOLVENTE-->
-		<droga idDroga="droga0" tipoporEfecto="" tipoPorOrigen="">
-			<causaEfectoInmediato tipoEfectoCausado=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
+		<droga idDroga="droga10" tipoporEfecto="depresivo" tipoPorOrigen="sintetica">
+			<causaEfectoInmediato tipoEfectoCausado="efecto33"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto34"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto35"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto36"/>
+			<causaProblemaSocial tipoProblema="problema22"/>
+			<causaProblemaSocial tipoProblema="problema01"/>
+			<causaProblemaSocial tipoProblema="problema02"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad30"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad31"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad32"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad33"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta11"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta12"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta13"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta14"/>
 			<nombres>
-				<nombre></nombre>
+				<nombre>Disolvente</nombre>
+				<nombre>Cola</nombre>
+				<nombre>Pegamento</nombre>
+				<nombre>Laca</nombre>
+				<nombre>Gasolina</nombre>
 			</nombres>
-			<compuestoClave></compuestoClave>
+			<compuestosClave>
+				<compuestoClave>Hidrocarburo aromático</compuestoClave>
+				<compuestoClave>Cetona</compuestoClave>
+				<compuestoClave>Pentano</compuestoClave>
+				<compuestoClave>Benceno</compuestoClave>
+				<compuestoClave>Cloroformo</compuestoClave>
+				<compuestoClave>Éter etílico</compuestoClave>
+				<compuestoClave>Éter monoetílico de etilenglicol</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
-
+				<presentacion>
+					Líquida
+					<viaConsumo>Inhalada</viaConsumo>
+				</presentacion>
+				<presentacion>
+					Gaseosa
+					<viaConsumo>Inhalada</viaConsumo>
+				</presentacion>
 			</presentaciones>
+
 			<legalidad>
-				
+				<legalidadAutoconsumo>
+					Legal
+				</legalidadAutoconsumo>
+				<legalidadConsumoPublico>
+					Legal
+					<restriccionEdad>No</restriccionEdad>
+					<restriccionEspacio>No</restriccionEspacio>
+				</legalidadConsumoPublico>
+				<legalidadDistribucion>
+					Legal
+				</legalidadDistribucion>
+				<legalidadVenta>
+					Legal
+					<restriccionEdad>No</restriccionEdad>
+					<restriccionEspacio>No</restriccionEspacio>
+				</legalidadVenta>
+				<legalidadCultivoVenta>
+					Legal
+					<restriccionEdad>No</restriccionEdad>
+					<restriccionEspacio>No</restriccionEspacio>
+				</legalidadCultivoVenta>
+				<legalidadCultivoAutoconsumo>
+					Legal
+				</legalidadCultivoAutoconsumo>
 			</legalidad>
 
 		</droga>
 		<!--POPPERS-->
-		<droga idDroga="droga0" tipoporEfecto="" tipoPorOrigen="">
-			<causaEfectoInmediato tipoEfectoCausado=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaProblemaSocial tipoProblema=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<causaEnfermedad tipoEnfermedad=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
-			<seVendeEnPuntoVenta tipoPuntoVenta=""/>
+		<droga idDroga="droga11" tipoporEfecto="vasodilatador" tipoPorOrigen="sintetica">
+			<causaEfectoInmediato tipoEfectoCausado="efecto37"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto38"/>
+			<causaEfectoInmediato tipoEfectoCausado="efecto39"/>
+			<causaProblemaSocial tipoProblema="problema01"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad34"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad35"/>
+			<causaEnfermedad tipoEnfermedad="enfermedad36"/>
+			<seVendeEnPuntoVenta tipoPuntoVenta="puntoVenta15"/>
 			<nombres>
-				<nombre></nombre>
+				<nombre>Poppers</nombre>
+				<nombre>Nitritos</nombre>
 			</nombres>
-			<compuestoClave></compuestoClave>
+			<compuestosClave>
+				<compuestoClave>Nitrito de alquilo</compuestoClave>
+				<compuestoClave>Nitrito de butilo</compuestoClave>
+				<compuestoClave>Nitrito de amilo</compuestoClave>
+			</compuestosClave>
 			<presentaciones>
-
+				<presentacion>
+					Líquida
+					<viaConsumo>Inhalada</viaConsumo>
+				</presentacion>
 			</presentaciones>
 			<legalidad>
-				
+				<legalidadAutoconsumo>
+					Legal
+				</legalidadAutoconsumo>
+				<legalidadConsumoPublico>
+					Legal
+					<restriccionEdad></restriccionEdad>
+					<restriccionEspacio></restriccionEspacio>
+				</legalidadConsumoPublico>
+				<legalidadDistribucion>
+					Legal
+				</legalidadDistribucion>
+				<legalidadVenta>
+					Legal
+					<restriccionEdad>Sí</restriccionEdad>
+					<restriccionEspacio>Sí</restriccionEspacio>
+				</legalidadVenta>
+				<legalidadCultivoVenta>
+					Legal
+				</legalidadCultivoVenta>
+				<legalidadCultivoAutoconsumo>
+					Legal
+				</legalidadCultivoAutoconsumo>
 			</legalidad>
 
 		</droga>
-
-
-
-
 
 	</drogas>
 
@@ -476,52 +685,62 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 			<efectoEstimulante idEfecto="efecto18" tipoDeEfecto="estimulante" duracion="De 10 a 45 minutos">Elevada energía</efectoEstimulante>
 			<efectoEstimulante idEfecto="efecto19" tipoDeEfecto="estimulante" duracion="De 10 a 45 minutos">Dilatación de las pupilas</efectoEstimulante>
 			<!--efectos inmediatos asociados a la heroína a continuación-->
-
+			<efectoDepresivo idEfecto="efecto20" tipoDeEfecto="depresivo" duracion="De 2 a 3 horas">Disminución de ansiedad</efectoDepresivo>
+			<efectoDepresivo idEfecto="efecto21" tipoDeEfecto="depresivo" duracion="De 2 a 3 horas">Pesadez en las extremidades</efectoDepresivo>
+			<efectoDepresivo idEfecto="efecto22" tipoDeEfecto="depresivo" duracion="De 2 a 3 horas">Vómito</efectoDepresivo>
 			<!--efectos inmediatos asociados al LSD a continuación-->
-
+			<efectoSicodelico idEfecto="efecto23" tipoDeEfecto="sicodelico">Distorsión perceptiva</efectoSicodelico>
 			<!--efectos inmediatos asociados al MDMA a continuación-->
-
+			<efectoEstimulante idEfecto="efecto24" tipoDeEfecto="estimulante" duracion="3 horas">Estimulación mental
+			</efectoEstimulante>
+			<efectoEstimulante idEfecto="efecto25" tipoDeEfecto="estimulante" duracion="3 horas">Estimulación emocional
+			</efectoEstimulante>
+			<efectoEstimulante idEfecto="efecto26" tipoDeEfecto="estimulante" duracion="3 horas">Estimulación motora
+			</efectoEstimulante>
+			<efectoEstimulante idEfecto="efecto27" tipoDeEfecto="estimulante" duracion="3 horas">Taquicardia
+			</efectoEstimulante>
+			<efectoEstimulante idEfecto="efecto28" tipoDeEfecto="estimulante" duracion="3 horas">Deshidratación
+			</efectoEstimulante>
 			<!--efectos inmediatos asociados a las anfetaminas a continuación-->
-
+			<efectoEstimulante idEfecto="efecto29" tipoDeEfecto="estimulante" duracion="de 2 a 30 minutos">Aumento de la capacidad de concentración
+			</efectoEstimulante>
+			<efectoEstimulante idEfecto="efecto30" tipoDeEfecto="estimulante" duracion="3 horas">Euforia
+			</efectoEstimulante>
+			<efectoEstimulante idEfecto="efecto31" tipoDeEfecto="estimulante" duracion="3 horas">Aumento de la frecuencia cardiaca
+			</efectoEstimulante>
+			<efectoEstimulante idEfecto="efecto32" tipoDeEfecto="estimulante" duracion="3 horas">Sequedad en la boca
+			</efectoEstimulante>
 			<!--efectos inmediatos asociados al disolvente a continuación-->
-
+			<efectoDepresivo idEfecto="efecto33" tipoDeEfecto="depresivo" duracion="pocos minutos">Euforia</efectoDepresivo>
+			<efectoDepresivo idEfecto="efecto34" tipoDeEfecto="depresivo" duracion="pocos minutos">Alucinaciones</efectoDepresivo>
+			<efectoDepresivo idEfecto="efecto35" tipoDeEfecto="depresivo" duracion="pocos minutos">Tos</efectoDepresivo>
+			<efectoDepresivo idEfecto="efecto36" tipoDeEfecto="depresivo" duracion="pocos minutos">Arritmias cardiacas</efectoDepresivo>
 			<!--efectos inmediatos asociados al poppers a continuación-->
+			<efectoVasodilatador idEfecto="efecto37" tipoDeEfecto="vasodilatador" duracion="entre 2 y 3 minutos">Dilatación de esfínteres</efectoVasodilatador>
+			<efectoVasodilatador idEfecto="efecto38" tipoDeEfecto="vasodilatador" duracion="entre 2 y 3 minutos">Sensación de euforia</efectoVasodilatador>
+			<efectoVasodilatador idEfecto="efecto39" tipoDeEfecto="vasodilatador" duracion="entre 2 y 3 minutos">Aumento del deseo sexual</efectoVasodilatador>
+
 		</efectosInmediatos>
 
 		<efectosLargo duracion="media-larga">
 			<problemasSociales entidadAfectada="Sociedad">
-				<!--problemas sociales asociados al café a continuación-->
 				<problemaSocial idPS="problema01">Asistencia sanitaria</problemaSocial> <!--Se puede repetir-->
-				<!--problemas sociales asociados al tabaco a continuación-->
 				<problemaSocial idPS="problema02">Gasto en prevención</problemaSocial>
 				<problemaSocial idPS="problema03">Consumo pasivo</problemaSocial>
-
-				<!--problemas sociales asociados al alcohol a continuación-->
-				<problemaSocial idPS="problema04">Accidentes de tráfico</problemaSocial> <!--Se puede repetir-->
+				<problemaSocial idPS="problema04">Accidentes de tráfico</problemaSocial> 
 				<problemaSocial idPS="problema05">Comportamiento agresivo</problemaSocial>
 				<problemaSocial idPS="problema06">Botellón</problemaSocial>
 				<problemaSocial idPS="problema07">Tráfico ilegal</problemaSocial>
 				<problemaSocial idPS="problema08">Problemas laborales</problemaSocial>
 				<problemaSocial idPS="problema09">Marginalidad</problemaSocial>
-				<!--problemas sociales asociados al cannabis a continuación-->
 				<problemaSocial idPS="problema10">Fracaso escolar</problemaSocial>
 				<problemaSocial idPS="problema11">Gasto en prevención</problemaSocial>
 				<problemaSocial idPS="problema12">Robos</problemaSocial>
+				<problemaSocial idPS="problema13">Defunciones</problemaSocial>				
+				<problemaSocial idPS="problema14">Entrada en programas de desintoxicación con metadona</problemaSocial>
+				<problemaSocial idPS="problema15">Problemas familiares</problemaSocial>
+				<problemaSocial idPS="problema22">Inducción al consumo de otras sustancias</problemaSocial>
 
-				<!--problemas sociales asociados a la cocaína a continuación-->
-				<problemaSocial idPS="problema13">Defunciones</problemaSocial>
-				</problemasSociales>
-				<!--problemas sociales asociados a la heroína a continuación-->
-
-				<!--problemas sociales asociados al LSD a continuación-->
-
-				<!--problemas sociales asociados al MDMA a continuación-->
-
-				<!--problemas sociales asociados a las anfetaminas a continuación-->
-
-				<!--problemas sociales asociados al disolvente a continuación-->
-
-				<!--problemas sociales asociados al poppers a continuación-->
 			</problemasSociales>
 			<enfermedades entidadAfectada="Individuo">
 				<!--Enfermedades ascoaidas al café a continuación-->
@@ -554,16 +773,25 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 				<enfermedad idEnfermedad="enfermedad21">Infarto de miocardio</enfermedad>
 				<enfermedad idEnfermedad="enfermedad22">Paro cardiorespiratorio súbito</enfermedad>
 				<!--Enfermedades asociadas a la heroína a continuación-->
-
+				<enfermedad idEnfermedad="enfermedad23">Trastornos mentales y de comportamiento</enfermedad>
+				<enfermedad idEnfermedad="enfermedad24">Infecciones bacterianas en vasos sanguíneos</enfermedad>
 				<!--Enfermedades asociadas al LSD a continuación-->
-
+				<enfermedad idEnfermedad="enfermedad25">Ansiedad</enfermedad>
+				<enfermedad idEnfermedad="enfermedad26">Depresión</enfermedad>
 				<!--Enfermedades asociadas al MDMA a continuación-->
-
+				<enfermedad idEnfermedad="enfermedad27">Síndrome de abstinencia</enfermedad>
 				<!--Enfermedades asociadas a las anfetaminas a continuación-->
-
+				<enfermedad idEnfermedad="enfermedad28">Alteraciones psicopatológicas de tipo psicótico</enfermedad>
+				<enfermedad idEnfermedad="enfermedad29">Problemas cardiacos</enfermedad>
 				<!--Enfermedades asociadas al disolvente a continuación-->
-
+				<enfermedad idEnfermedad="enfermedad30">Lesión hepática</enfermedad>
+				<enfermedad idEnfermedad="enfermedad31">Lesión renal</enfermedad>
+				<enfermedad idEnfermedad="enfermedad32">Dolores de cabeza</enfermedad>
+				<enfermedad idEnfermedad="enfermedad33">Insomnio</enfermedad>
 				<!--Enfermedades asociadas al poppers a continuación-->
+				<enfermedad idEnfermedad="enfermedad34">Daños neurológicos</enfermedad>
+				<enfermedad idEnfermedad="enfermedad35">Cianosis</enfermedad>
+				<enfermedad idEnfermedad="enfermedad36">Afectaciones en pulmones</enfermedad>
 			</enfermedades>
 		</efectosLargo>
 
@@ -618,32 +846,56 @@ xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/drogas
 		<!--Consumidor de heroína-->
 		<consumidorMedio idConsumidor="consumidor06">
 			<consumeDroga tipoDroga="droga06"/>
-			
+			<edad>22</edad>
+			<sexo>Hombre</sexo>
+			<nivelEducativo>Estudios primarios</nivelEducativo>
+			<ocupacion>Trabajador en activo</ocupacion>
+			<claseSocial>Baja-media</claseSocial>
 		</consumidorMedio>
 		<!--Consumidor de LSD-->
 		<consumidorMedio idConsumidor="consumidor07">
 			<consumeDroga tipoDroga="droga07"/>
-			
+			<edad>25</edad>
+			<sexo>Hombre y mujer</sexo>
+			<nivelEducativo>Estudios secundarios</nivelEducativo>
+			<ocupacion>Estudiante</ocupacion>
+			<claseSocial>Media</claseSocial>
 		</consumidorMedio>
 		<!--Consumidor de MDMA-->
 		<consumidorMedio idConsumidor="consumidor08">
-			<consumeDroga tipoDroga="droga08"/>
-			
+			<edad>22</edad>
+			<sexo>Hombre</sexo>
+			<nivelEducativo>Irrelevante</nivelEducativo>
+			<ocupacion>Irrelevante</ocupacion>
+			<claseSocial>Irrelevante</claseSocial>
+			<consumeDroga tipoDroga="droga08"/>			
 		</consumidorMedio>
 		<!--Consumidor de Anfetaminas-->
 		<consumidorMedio idConsumidor="consumidor09">
+			<edad>19</edad>
+			<sexo>Hombre</sexo>
+			<nivelEducativo>Irrelevante</nivelEducativo>
+			<ocupacion>Irrelevante</ocupacion>
+			<claseSocial>Irrelevante</claseSocial>
 			<consumeDroga tipoDroga="droga09"/>
-			
 		</consumidorMedio>
 		<!--Consumidor de disolvente-->
 		<consumidorMedio idConsumidor="consumidor10">
 			<consumeDroga tipoDroga="droga10"/>
-			
+			<edad>18</edad>
+			<sexo>Irrelevante</sexo>
+			<nivelEducativo>Bajo</nivelEducativo>
+			<ocupacion></ocupacion>
+			<claseSocial>Marginal-baja</claseSocial>
 		</consumidorMedio>
 		<!--Consumidor de poppers-->
 		<consumidorMedio idConsumidor="consumidor11">
 			<consumeDroga tipoDroga="droga11"/>
-			
+			<edad>25</edad>
+			<sexo>Hombre</sexo>
+			<nivelEducativo>Medio y superior</nivelEducativo>
+			<ocupacion>Estudiante/Trabajador</ocupacion>
+			<claseSocial>Media-alta</claseSocial>
 		</consumidorMedio>
 	</consumidores>
 
