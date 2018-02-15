@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs= "http://www.w3c.org/2001/XMLSchema"
-targetNamespace="https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl"
-xmlns="https://raw.githubusercontent.com/Alicja13/oim/master/drogasOntologia.owl"
+targetNamespace="https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd"
+xmlns="https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd"
 elementFormDefault="qualified">
 
 <!--Declaración de los elementos simples para luego referenciarlos-->
@@ -179,7 +179,13 @@ elementFormDefault="qualified">
       </xs:complexType>
     </xs:element>
 
-    <xs:element ref="compuestoClave"/>
+    <xs:element name="nombres">
+      <xs:complexType>
+        <xs:sequence>
+        <xs:element ref="compuestoClave"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
     <!--presentacion elemento mixto-->
     <xs:element name="presentaciones">
       <xs:complexType>
