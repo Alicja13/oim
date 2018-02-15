@@ -1,0 +1,90 @@
+<!DOCTYPE consumo>
+
+<!ELEMENT consumo (drogas+, efectos+, consumidores+, puntosVenta+)>
+
+<!ELEMENT drogas(droga+)>
+<!ELEMENT droga(causaEfectoEstimulante*,causaEfectoInmediato*,causaProblemaSocial*,causaEnfermedad*,seVendeEnPuntoVenta*,nombres+,compuestoClave+,presentaciones+,legalidad)>
+<!ELEMENT causaEfectoEstimulante(#PCDATA)>
+<!ELEMENT causaEfectoInmediato(#PCDATA)>
+<!ELEMENT causaProblemaSocial(#PCDATA)>
+<!ELEMENT causaEnfermedad(#PCDATA)>
+<!ELEMENT seVendeEnPuntoVenta(#PCDATA)>
+<!ELEMENT nombres(nombre+)>
+<!ELEMENT nombre(#PCDATA)>
+<!ELEMENT compuestoClave(#PCDATA)>
+<!ELEMENT presentaciones(presentacion+)>
+<!ELEMENT presentacion(#PCDATA, viaConsumo+)>
+<!ELEMENT viaConsumo(#PCDATA)>
+<!ELEMENT legalidad(legalidadAutoconsumo,legalidadConsumoPublico,legalidadDistribucion,legalidadVenta,legalidadCultivoVenta,legalidadCultivoAutoconsumo)>
+<!ELEMENT legalidadAutoconsumo(#PCDATA)>
+<!ELEMENT legalidadConsumoPublico(#PCDATA,restriccionEdad,restriccionEspacio)>
+<!ELEMENT legalidadDistribucion(#PCDATA)>
+<!ELEMENT legalidadVenta(#PCDATA,restriccionEdad,restriccionEspacio)>
+<!ELEMENT legalidadCultivoVenta(#PCDATA,restriccionEdad*,restriccionEspacio*)>
+<!ELEMENT legalidadCultivoAutoconsumo(#PCDATA)>
+<!ELEMENT restriccionEdad(#PCDATA)>
+<!ELEMENT restriccionEspacio(#PCDATA)>
+
+<!ELEMENT efectos(efectosInmediatos,efectosLargo)>
+<!ELEMENT efectosInmediatos(efectoEstimulante+,efectoDepresivo+,efectoSicodelico+,efectoVasodilatador+)>
+<!ELEMENT efectoEstimulante(#PCDATA)>
+<!ELEMENT efectoDepresivo(#PCDATA)>
+<!ELEMENT efectoSicodelico(#PCDATA)>
+<!ELEMENT efectoVasodilatador(#PCDATA)>
+<!ELEMENT efectosLargo(problemasSociales,enfermedades)>
+<!ELEMENT problemasSociales(problemaSocial+)>
+<!ELEMENT problemaSocial(#PCDATA)>
+<!ELEMENT enfermedades(enfermedad+)>
+<!ELEMENT efectoEstimulante(#PCDATA)>
+<!ELEMENT enfermedad(#PCDATA)>
+
+<!ELEMENT consumidores(consumidorMedio+)>
+<!ELEMENT consumidorMedio(consumeDroga,edad,sexo,nivelEducativo,ocupacion,claseSocial)>
+<!ELEMENT consumeDroga(#PCDATA)>
+<!ELEMENT edad(#PCDATA)>
+<!ELEMENT sexo(#PCDATA)>
+<!ELEMENT nivelEducativo(#PCDATA)>
+<!ELEMENT ocupacion(#PCDATA)>
+<!ELEMENT claseSocial(#PCDATA)>
+
+<!ELEMENT puntosVenta(puntoVenta*)>
+<!ELEMENT puntoVenta(#PCDATA)>
+
+<!ATTLIST id droga ID #REQUIRED>
+<!ATTLIST tipoporEfecto droga CDATA #REQUIRED>
+<!ATTLIST tipoPorOrigen droga CDATA #REQUIRED>
+<!ATTLIST tipoEfectoCausado causaEfectoEstimulante CDATA #REQUIRED>
+<!ATTLIST tipoEfectoCausado causaEfectoInmediato CDATA #REQUIRED>
+<!ATTLIST tipoProblema causaProblemaSocial CDATA #REQUIRED>
+<!ATTLIST tipoEnfermedad causaEnfermedad CDATA #REQUIRED>
+<!ATTLIST tipoPuntoVenta seVendeEnPuntoVenta CDATA #REQUIRED>
+
+<!ATTLIST idEfecto efectoEstimulante ID #REQUIRED>
+<!ATTLIST tipoDeEfecto efectoEstimulante CDATA #REQUIRED>
+<!ATTLIST duracion efectoEstimulante CDATA #REQUIRED>
+
+<!ATTLIST idEfecto efectoDepresivo ID #REQUIRED>
+<!ATTLIST tipoDeEfecto efectoDepresivo CDATA #REQUIRED>
+<!ATTLIST duracion efectoDepresivo CDATA #REQUIRED>
+
+<!ATTLIST idEfecto efectoSicodelico ID #REQUIRED>
+<!ATTLIST tipoDeEfecto efectoSicodelico CDATA #REQUIRED>
+<!ATTLIST duracion efectoSicodelico CDATA #REQUIRED>
+
+<!ATTLIST idEfecto efectoVasodilatador ID #REQUIRED>
+<!ATTLIST tipoDeEfecto efectoVasodilatador CDATA #REQUIRED>
+<!ATTLIST duracion efectoVasodilatador CDATA #REQUIRED>
+
+<!ATTLIST duracion efectosLargo CDATA #REQUIRED>
+<!ATTLIST entidadAfectada problemasSociales CDATA #REQUIRED>
+<!ATTLIST idPS problemaSocial ID #REQUIRED>
+
+<!ATTLIST entidadAfectada enfermedades CDATA #REQUIRED>
+<!ATTLIST idEnfermedad enfermedad ID #REQUIRED>
+
+<!ATTLIST idConsumidor consumidorMedio ID #REQUIRED>
+<!ATTLIST tipoDroga consumeDroga CDATA #REQUIRED>
+
+<!ATTLIST idPV puntoVenta ID #REQUIRED>
+
+
