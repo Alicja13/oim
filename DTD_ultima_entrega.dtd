@@ -1,4 +1,4 @@
-<!DOCTYPE consumo>
+<!DOCTYPE consumo [
 
 <!ELEMENT consumo (drogas+, efectos+, consumidores+, puntosVenta+)>
 
@@ -87,4 +87,5 @@
 
 <!ATTLIST idPV puntoVenta ID #REQUIRED>
 
+]>
 
