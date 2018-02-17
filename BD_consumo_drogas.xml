@@ -4,19 +4,16 @@
 </xsl:template>
 </xsl:stylesheet>
 
- <!DOCTYPE consumo SYSTEM "DTD_ultima_entrega.dtd" >
+<!--referencia a la DTD-->
 
-<!--Referencia a la DTD (HAY QUE SUBIRLA A GITHUB)-->
-<!--Se toma la referencia como un comentario, no sé por qué, así que la pongo como comentario para poder seguir pasando el validador-->
-<!--DOCTYPE consumo SYSTEM
-"https://www.w3schools.com/xml/note.dtd"-->
+ <!DOCTYPE consumo SYSTEM "https://raw.githubusercontent.com/Alicja13/oim/master/DTD_ultima_entrega.dtd" >
+
 <!--Un solo elemento raiz-->
 
 <!--Lo que está dentro de consumo es la referencia al esquema-->
 <consumo xmlns = "https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd"
 xmlns:xsi = "http://www.w3.org/2001/XMLSchema"
-xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd"> <!--Aquí URL de github con esquema-->
-<!--Lo anterior es la referencia al esquema, pero creo que habría que subirlo a GitHub y referenciar eso-->
+xsi:schemaLocation="https://raw.githubusercontent.com/Alicja13/oim/master/esquemaConsumoDrogas.xsd"> 
 
 	<drogas>
 		<!--CAFÉ-->
